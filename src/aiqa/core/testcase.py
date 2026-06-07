@@ -43,6 +43,8 @@ class TestCase(BaseModel):
     tools_called: list[str] | None = None
     expected_tools : list[str] | None = None
 
+
+    '''Following is a Python configuration snippet—likely using the Pydantic library—used to define metadata for AI or software testing.'''
     #Test-management metadata. Tags drive parameterized/filtered suites.
     # ("run only @safety"), metadata carries provenance(dataset version, etc.).
     tags : list[str] = Field(default_factory=list)
