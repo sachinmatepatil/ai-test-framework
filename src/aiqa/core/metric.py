@@ -81,6 +81,7 @@ class Metric(ABC):
             n_samples=n,
             start=spread,
             latency_ms=latency_ms,
+            stdev=spread,
         )
 
     async def _collect_samples(

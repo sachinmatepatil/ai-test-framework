@@ -38,6 +38,7 @@ class MetricResult(BaseModel):
     score: float | None = None #aggregated score (None if erroed)
     threshold: str = "" #Human-readable threshold, e.g. "score>=0.7"
     reason: str | None = None
+    error: str | None = None
 
     #Reproducibility + non-determinism evidence.
     samples: list[float] = Field(default_factory=list)
@@ -54,13 +55,13 @@ class TestResult(BaseModel):
     __test__ = False #Domain model, not a pytest test class
 
     test_case_id: str
-    metric_results = list[MetricResult]
+    metric_results : list[MetricResult]
 
     @property
     def status(self) -> Status:
         if any(m.status is Status.ERRORED for m in self.metric_results):
             return Status.ERRORED
-        if all(m.status is Status.FAILED for m in self.metric_results):
+        if any(m.status is Status.FAILED for m in self.metric_results):
             return Status.FAILED
         return Status.PASSED
 
