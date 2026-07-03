@@ -28,8 +28,8 @@ jobs:
 
       - name: Install package + dev dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip -m pip install -e ".[dev]"
+            python -m pip install --upgrade pip
+            pip install -e .[dev]
 
       - name: Run tests with coverage gate
         run: |
