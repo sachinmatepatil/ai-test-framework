@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "aiqa"
 version = "0.1.0"
 description = "A from-scratch, production-grade AI/LLM testing & evaluation framework."
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = ["pydantic>=2.5"]
 
 [project.optional-dependencies]
